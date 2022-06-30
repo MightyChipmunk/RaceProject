@@ -45,7 +45,7 @@ public class Effect : MonoBehaviour
         }
     }
 
-    public void skidMark() { }
+    public void skidMark() { }    
     public void boostFire() { }
     public void playSound() { }
 }

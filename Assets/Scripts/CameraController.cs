@@ -47,7 +47,6 @@ public class CameraController : MonoBehaviour
         // 부스터를 하는 상황에는 카메라를 뒤로 밀고싶다.
         if(pc.isBooster)
         {
-
             lerp = Mathf.Lerp(lerp, 1.5f, Time.deltaTime);
         }
         else

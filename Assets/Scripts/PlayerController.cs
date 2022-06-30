@@ -173,10 +173,11 @@ public class PlayerController : MonoBehaviour
             stat.speed = origSpeed;
         }
 
-        // 스페이스바를 누르면 점프
+        // 스페이스바를 누를 때 지상에 있으면 점프
         if (InputManager.instance.Jump)
         {
-            skill.Jump();
+            if (IsGrounded()) 
+                skill.Jump();
         }
     }
 }
