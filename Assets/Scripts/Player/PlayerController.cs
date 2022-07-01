@@ -120,17 +120,17 @@ public class PlayerController : MonoBehaviour
         // 가속도 운동을 구현하고 싶다.
         if (InputManager.instance.Accel)
         {
-            lerp = Mathf.Lerp(lerp, stat.speed, Time.deltaTime);
+            lerp = Mathf.Lerp(lerp, stat.speed, Time.deltaTime / 10 * stat.accelPower);
             transform.position += lerp * dir * Time.deltaTime;
         }
         else if (InputManager.instance.Brake)
         {
-            lerp = Mathf.Lerp(lerp, -stat.speed / 3, Time.deltaTime);
+            lerp = Mathf.Lerp(lerp, -stat.speed / 3, Time.deltaTime / 10 * stat.brakePower);
             transform.position += lerp * dir * Time.deltaTime;
         }
         else
         {
-            lerp = Mathf.Lerp(lerp, 0, Time.deltaTime);
+            lerp = Mathf.Lerp(lerp, 0, Time.deltaTime / 5);
             transform.position += lerp * dir * Time.deltaTime;
         }
 

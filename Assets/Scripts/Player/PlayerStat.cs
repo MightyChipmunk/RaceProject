@@ -6,6 +6,9 @@ public class PlayerStat : MonoBehaviour
 {
     public float speed = 30;
     public float rotSpeed = 80;
+    public float accelPower = 3;
+    public float brakePower = 5;
+
     // Start is called before the first frame update
     void Start()
     {

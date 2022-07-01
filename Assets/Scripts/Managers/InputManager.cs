@@ -6,7 +6,6 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public static InputManager instance;
-    public Action KeyAction = null;
 
     float horizon;
     public float Horizon { get { return horizon; } }
