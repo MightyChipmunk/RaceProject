@@ -180,7 +180,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // 컨트롤 키를 누르면 부스터
-        if (InputManager.Instance.Boost)
+        if (InputManager.Instance.Boost && stat.boostGauge >= 0)
         {
             skill.Boost();
             // 부스터 소리 재생

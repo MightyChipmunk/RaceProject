@@ -9,6 +9,8 @@ public class PlayerSkill : MonoBehaviour
     public float origRotSpeed;
     Rigidbody rig;
     public float jumpForce = 300;
+    PlayerController pc;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,7 @@ public class PlayerSkill : MonoBehaviour
         origSpeed = stat.speed;
 
         rig = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
@@ -35,11 +38,21 @@ public class PlayerSkill : MonoBehaviour
         stat.speed = origSpeed / 2;
 
         transform.position += InputManager.Instance.Horizon * dirDrift * 3 * Time.deltaTime;
+
+        if(stat.boostGauge < 10)
+        {
+            stat.boostGauge += 2.0f * Time.deltaTime;
+        }
     }
 
     public void Boost()
     {
-        stat.speed = origSpeed * 2;
+        
+        if (stat.boostGauge >= 0)
+        {
+            stat.speed = origSpeed * 2;
+            stat.boostGauge -= 4.0f * Time.deltaTime;
+        }
     }
 
     public void Jump()
