@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
                 // 버튼을 누르는 반대방향으로 차량이 회전한다.    
                 transform.eulerAngles -= InputManager.Instance.Horizon * stat.rotSpeed * Time.deltaTime * Vector3.up;
         }
-        // 공중에서 A, D 키를 누를 때 차량을 좌우로 이동하고 싶다.
+        // 공중에서 A, D 키를 누를 때 차량을 좌우로 수평이동하고 싶다.
         else
         {
             // 차량 기준이 아닌 카메라가 바라보는 방향을 기준으로 좌우로 이동하고 싶다.
@@ -141,9 +141,9 @@ public class PlayerController : MonoBehaviour
             lerp = Mathf.Lerp(lerp, -stat.speed / 3, Time.deltaTime / 10 * stat.brakePower);
             transform.position += lerp * dir * Time.deltaTime;
             // 브레이크를 누르면 엔진 사운드를 서서히 멈춘다.
-            // 만약 속도가 0 아래라면 피치 값으로 -(속도) 값을 넘겨준다.
             if (lerp > 0)
                 SoundManager.Instance.Play(engineClip, SoundManager.Sound.Engine, lerp / origSpeed * 2);
+            // 만약 속도가 0 아래라면 피치 값으로 -(속도) 값을 넘겨준다.
             else
                 SoundManager.Instance.Play(engineClip, SoundManager.Sound.Engine, -lerp / origSpeed * 2);
         }
@@ -170,6 +170,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (InputManager.Instance.DriftEnd)
             {
+                // 드리프트 키를 떼면 속도를 원상복귀
                 stat.speed = origSpeed;
                 stat.rotSpeed = origRotSpeed;
                 // 드리프트 소리 멈춤
@@ -186,8 +187,9 @@ public class PlayerController : MonoBehaviour
             SoundManager.Instance.Play(boostClip, SoundManager.Sound.Booster);
             isBooster = true;
         }
-        else if (InputManager.Instance.BoostEnd)
+        else if (InputManager.Instance.BoostEnd || stat.boostGauge < 0)
         {
+            // 부스터 키를 떼거나 부스트 게이지가 없으면 속도를 원상복귀
             stat.speed = origSpeed;
             stat.rotSpeed = origRotSpeed;
             // 부스터 소리 멈춤

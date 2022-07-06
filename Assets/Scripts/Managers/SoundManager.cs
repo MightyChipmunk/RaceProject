@@ -12,7 +12,7 @@ public class SoundManager : MonoBehaviour
         Engine,
         Jump,
         Collide,
-        MaxCount,  // 아무것도 아님. 그냥 Sound enum의 개수 세기 위해 추가. (0, 1, '2' 이렇게 2개) 
+        MaxCount,  // 아무것도 아님. 그냥 Sound enum의 개수 세기 위해 추가.
     }
     public static SoundManager Instance { get; private set; }
 

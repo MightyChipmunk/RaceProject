@@ -352,7 +352,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Managers/InputManager.cs"
 "Assets/Scripts/Managers/SoundManager.cs"
-"Assets/Scripts/Player/Boost.cs"
+"Assets/Scripts/Player/BoostEffect.cs"
 "Assets/Scripts/Player/CameraController.cs"
 "Assets/Scripts/Player/Line.cs"
 "Assets/Scripts/Player/PlayerController.cs"

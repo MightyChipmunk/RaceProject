@@ -62,7 +62,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerSkill.cs" />
     <Compile Include="Assets\Scripts\Managers\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Player\Line.cs" />
-    <Compile Include="Assets\Scripts\Player\Boost.cs" />
+    <Compile Include="Assets\Scripts\Player\BoostEffect.cs" />
     <Compile Include="Assets\Scripts\Player\CameraController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStat.cs" />
   </ItemGroup>
