@@ -7,7 +7,7 @@ public class PlayerSkill : MonoBehaviour
     PlayerStat stat;
     public float origSpeed;
     public float origRotSpeed;
-    Rigidbody rigidbody;
+    Rigidbody rig;
     public float jumpForce = 300;
 
     // Start is called before the first frame update
@@ -18,7 +18,7 @@ public class PlayerSkill : MonoBehaviour
         origRotSpeed = stat.rotSpeed;
         origSpeed = stat.speed;
 
-        rigidbody = GetComponent<Rigidbody>();
+        rig = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class PlayerSkill : MonoBehaviour
         stat.rotSpeed = origRotSpeed * 2;
         stat.speed = origSpeed / 2;
 
-        transform.position += InputManager.instance.Horizon * dirDrift * 3 * Time.deltaTime;
+        transform.position += InputManager.Instance.Horizon * dirDrift * 3 * Time.deltaTime;
     }
 
     public void Boost()
@@ -44,7 +44,7 @@ public class PlayerSkill : MonoBehaviour
 
     public void Jump()
     {
-        rigidbody.AddForce(Vector3.up * jumpForce);
+        rig.AddForce(Vector3.up * jumpForce);
     }
 
 }

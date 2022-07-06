@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    public static InputManager instance;
+    public static InputManager Instance { get; private set; }
 
     float horizon;
     public float Horizon { get { return horizon; } }
@@ -26,14 +26,14 @@ public class InputManager : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
     public void Update()
     {
         horizon = Input.GetAxis("Horizontal");
-        accel = Input.GetKey(KeyCode.W);
-        brake = Input.GetKey(KeyCode.S);
+        accel = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+        brake = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
         drift = Input.GetKey(KeyCode.LeftShift);
         driftEnd = Input.GetKeyUp(KeyCode.LeftShift);
         boost = Input.GetKey(KeyCode.LeftControl);

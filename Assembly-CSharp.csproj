@@ -56,13 +56,18 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\race-track-lake\Standard Assets\Environment\Water (Basic)\Scripts\WaterBasic.cs" />
-    <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Player\WheelController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerSkill.cs" />
+    <Compile Include="Assets\Scripts\Managers\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\Player\Line.cs" />
+    <Compile Include="Assets\Scripts\Player\Boost.cs" />
+    <Compile Include="Assets\Scripts\Player\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerStat.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\race-track-lake\readmore.txt" />
-    <None Include="Assets\race-track-lake\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
+    <None Include="Assets\BEDRILL\Modular_Track_Free\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

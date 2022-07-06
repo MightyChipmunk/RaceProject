@@ -20,7 +20,18 @@ public class PlayerController : MonoBehaviour
     PlayerStat stat;
     PlayerSkill skill;
     Rigidbody rig;
-    GameObject camera;
+    GameObject cam;
+
+    [SerializeField]
+    AudioClip driftClip;
+    [SerializeField]
+    AudioClip boostClip;
+    [SerializeField]
+    AudioClip jumpClip;
+    [SerializeField]
+    AudioClip engineClip;
+    [SerializeField]
+    AudioClip collideClip;
 
     public PlayerState _state = PlayerState.Front;
 
@@ -30,7 +41,7 @@ public class PlayerController : MonoBehaviour
         stat = gameObject.GetComponent<PlayerStat>();
         skill = gameObject.GetComponent<PlayerSkill>();
         rig = gameObject.GetComponent<Rigidbody>();
-        camera = GameObject.Find("CameraView");
+        cam = GameObject.Find("CameraView");
 
         origSpeed = stat.speed;
         origRotSpeed = stat.rotSpeed;
@@ -55,15 +66,15 @@ public class PlayerController : MonoBehaviour
         transform.eulerAngles = new Vector3(rz, transform.eulerAngles.y, rx);
 
         // 현재 직진인지 좌회전인지 우회전인지 확인
-        if (InputManager.instance.Horizon > 0)
+        if (InputManager.Instance.Horizon > 0)
         {
             _state = PlayerState.Right;
         }
-        else if (InputManager.instance.Horizon < 0)
+        else if (InputManager.Instance.Horizon < 0)
         {
             _state = PlayerState.Left;
         }
-        else if (InputManager.instance.Horizon == 0)
+        else if (InputManager.Instance.Horizon == 0)
         {
             _state = PlayerState.Front;
         }
@@ -85,53 +96,63 @@ public class PlayerController : MonoBehaviour
             // 만약 속도가 0 이상이면
             if (lerp >= -0.1f)
                 // 버튼을 누르는 방향으로 차량이 회전한다.
-                transform.eulerAngles += InputManager.instance.Horizon * stat.rotSpeed * Time.deltaTime * Vector3.up;
+                transform.eulerAngles += InputManager.Instance.Horizon * stat.rotSpeed * Time.deltaTime * Vector3.up;
             // 속도가 마이너스라면(후진 중이라면)
             else
                 // 버튼을 누르는 반대방향으로 차량이 회전한다.    
-                transform.eulerAngles -= InputManager.instance.Horizon * stat.rotSpeed * Time.deltaTime * Vector3.up;
+                transform.eulerAngles -= InputManager.Instance.Horizon * stat.rotSpeed * Time.deltaTime * Vector3.up;
         }
         // 공중에서 A, D 키를 누를 때 차량을 좌우로 이동하고 싶다.
         else
         {
             // 차량 기준이 아닌 카메라가 바라보는 방향을 기준으로 좌우로 이동하고 싶다.
-            Vector3 camDir = camera.transform.rotation * Vector3.right;
-            transform.position += InputManager.instance.Horizon * 10 * Time.deltaTime * camDir;
+            Vector3 camDir = cam.transform.rotation * Vector3.right;
+            transform.position += InputManager.Instance.Horizon * 10 * Time.deltaTime * camDir;
         }
 
         // 차량이 바라보는 방향으로 전/후진 하고싶다.
         Vector3 dir = transform.rotation * Vector3.forward;
-        // 공중에선 차량이 바라보는 방향 중 Y축 방향을 배제하고 이동하고 싶다.
-        // 공중에서 드리프트를 누르면 차량 좌우 방향을 전환하고 싶다.
         if (!IsGrounded())
         {
             // 만약 드리프트 중간에 공중에 뜨면 드리프트 중단
             stat.speed = origSpeed;
             stat.rotSpeed = origRotSpeed;
             isDrift = false;
+            // 공중에선 차량이 바라보는 방향 중 Y축 방향을 배제하고 이동하고 싶다.
             dir.y = 0;
-            if (InputManager.instance.Drift)
+            // 공중에서 드리프트를 누르면 차량 좌우 방향을 전환하고 싶다.
+            if (InputManager.Instance.Drift)
             {
-                transform.eulerAngles += InputManager.instance.Horizon * stat.rotSpeed * Time.deltaTime * Vector3.up;
+                transform.eulerAngles += InputManager.Instance.Horizon * stat.rotSpeed * Time.deltaTime * Vector3.up;
             }
         }
         dir.Normalize();
 
         // 가속도 운동을 구현하고 싶다.
-        if (InputManager.instance.Accel)
+        if (InputManager.Instance.Accel)
         {
             lerp = Mathf.Lerp(lerp, stat.speed, Time.deltaTime / 10 * stat.accelPower);
             transform.position += lerp * dir * Time.deltaTime;
+            // 직진 시에 엔진 사운드를 재생한다.
+            SoundManager.Instance.Play(engineClip, SoundManager.Sound.Engine, lerp / origSpeed * 2);
         }
-        else if (InputManager.instance.Brake)
+        else if (InputManager.Instance.Brake)
         {
             lerp = Mathf.Lerp(lerp, -stat.speed / 3, Time.deltaTime / 10 * stat.brakePower);
             transform.position += lerp * dir * Time.deltaTime;
+            // 브레이크를 누르면 엔진 사운드를 서서히 멈춘다.
+            // 만약 속도가 0 아래라면 피치 값으로 -(속도) 값을 넘겨준다.
+            if (lerp > 0)
+                SoundManager.Instance.Play(engineClip, SoundManager.Sound.Engine, lerp / origSpeed * 2);
+            else
+                SoundManager.Instance.Play(engineClip, SoundManager.Sound.Engine, -lerp / origSpeed * 2);
         }
         else
         {
             lerp = Mathf.Lerp(lerp, 0, Time.deltaTime / 5);
             transform.position += lerp * dir * Time.deltaTime;
+            // 직진을 안 누르면 엔진 사운드를 서서히 멈춘다.
+            SoundManager.Instance.Play(engineClip, SoundManager.Sound.Engine, lerp / origSpeed * 2);
         }
 
         // 체공시간을 늘리고 싶다.
@@ -140,30 +161,37 @@ public class PlayerController : MonoBehaviour
         // 지상에서 쉬프트키를 누르면 드리프트
         if(IsGrounded())
         {
-            if (InputManager.instance.Drift)
+            if (InputManager.Instance.Drift)
             {
-                Debug.Log("drift");
                 skill.Drift();
+                // 드리프트 소리 재생
+                SoundManager.Instance.Play(driftClip, SoundManager.Sound.Drift);
                 isDrift = true;
             }
-            else if (InputManager.instance.DriftEnd)
+            else if (InputManager.Instance.DriftEnd)
             {
                 stat.speed = origSpeed;
                 stat.rotSpeed = origRotSpeed;
+                // 드리프트 소리 멈춤
+                SoundManager.Instance.Stop(SoundManager.Sound.Drift);
                 isDrift = false;
             }
         }
 
         // 컨트롤 키를 누르면 부스터
-        if (InputManager.instance.Boost)
+        if (InputManager.Instance.Boost)
         {
             skill.Boost();
+            // 부스터 소리 재생
+            SoundManager.Instance.Play(boostClip, SoundManager.Sound.Booster);
             isBooster = true;
         }
-        else if (InputManager.instance.BoostEnd)
+        else if (InputManager.Instance.BoostEnd)
         {
             stat.speed = origSpeed;
             stat.rotSpeed = origRotSpeed;
+            // 부스터 소리 멈춤
+            SoundManager.Instance.Stop(SoundManager.Sound.Booster);
             isBooster = false;
         }
 
@@ -174,10 +202,23 @@ public class PlayerController : MonoBehaviour
         }
 
         // 스페이스바를 누를 때 지상에 있으면 점프
-        if (InputManager.instance.Jump)
+        if (InputManager.Instance.Jump)
         {
             if (IsGrounded()) 
                 skill.Jump();
+            // 점프 소리 재생
+            SoundManager.Instance.Play(jumpClip, SoundManager.Sound.Jump);
+        }
+    }
+
+    // 충돌했을 때 장애물을 뚫는 오류를 해결하기 위해 작성
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == 9)
+        {
+            // 충돌 시 차량의 속도를 0으로 만든다.
+            lerp = 0;
+            SoundManager.Instance.Play(collideClip, SoundManager.Sound.Collide);
         }
     }
 }

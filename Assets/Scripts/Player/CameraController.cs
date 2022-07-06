@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour
         // 카메라 뷰어의 위치는 항상 플레이어의 위치이다.
         transform.position = player.transform.position;
         // 카메라 뷰어의 오일러 각도가 360을 초과하거나 0 미만이 될 때마다 오류가 발생한다.
-        // 절댓값을 계산해서 360을 초과할 때와 0 미만이 될때를 따로 계산한다.
+        // 따라서 절댓값을 계산해 360을 초과할 때와 0 미만이 될때를 따로 계산한다.
         if (Math.Abs(player.transform.eulerAngles.y - transform.eulerAngles.y) > 180)
         {
             if (player.transform.eulerAngles.y - transform.eulerAngles.y >= 0)
