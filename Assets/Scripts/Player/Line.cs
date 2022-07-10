@@ -5,12 +5,15 @@ using UnityEngine;
 public class Line : MonoBehaviour
 {
     PlayerController pc;
-    public GameObject Factory;
+    TrailRenderer trail;
 
     // Start is called before the first frame update
     void Start()
     {
         pc = transform.parent.GetComponent<PlayerController>();
+        trail = transform.GetChild(1).GetComponent<TrailRenderer>();
+
+        trail.emitting = false;
 
         transform.GetChild(0).gameObject.SetActive(false);
     }
@@ -18,17 +21,15 @@ public class Line : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (pc.isDrift)
         {
-            GameObject plane = Instantiate(Factory);
-
-            plane.transform.position = transform.position - Vector3.up * 0.1f;
-            plane.transform.eulerAngles = transform.parent.eulerAngles;
-
+            trail.emitting = true;
             transform.GetChild(0).gameObject.SetActive(true);
         }
         else
         {
+            trail.emitting = false;
             transform.GetChild(0).gameObject.SetActive(false);
         }
     }

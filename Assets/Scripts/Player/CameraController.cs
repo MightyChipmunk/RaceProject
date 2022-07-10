@@ -22,6 +22,7 @@ public class CameraController : MonoBehaviour
     {
         // 카메라와 플레이어 간의 벡터를 구한다.
         Vector3 dir = player.transform.position - transform.GetChild(0).position;
+        dir.y = 0;
         dir.Normalize();
         // 카메라 뷰어의 위치는 항상 플레이어의 위치이다.
         transform.position = player.transform.position;
@@ -53,6 +54,6 @@ public class CameraController : MonoBehaviour
         {
             lerp = Mathf.Lerp(lerp, 0, Time.deltaTime);
         }
-        transform.position = player.transform.position - dir * lerp;
+        transform.position = player.transform.position - dir * lerp + Vector3.up * lerp / 8;
     }
 }
