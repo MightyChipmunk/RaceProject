@@ -13,7 +13,11 @@ public class PlayerController : MonoBehaviour
     public bool isDrift = false;
     public bool isBooster = false;
 
+    bool canMove = false;
+    public bool CanMove { get { return canMove; } set { canMove = value; } }
+
     float lerp = 0;
+    public float Lerp { get { return lerp; } }
     float origSpeed;
     float origRotSpeed;
 
@@ -50,7 +54,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        carMove();
+        if (canMove)
+            carMove();
 
         // 공중에서 차량의 각도를 제한하고 싶다.
         float rx = transform.eulerAngles.z;
@@ -158,8 +163,16 @@ public class PlayerController : MonoBehaviour
         // 체공시간을 늘리고 싶다.
         rig.AddForce(Vector3.up * 10.0f * Time.deltaTime);
 
+        // 스페이스바를 누를 때 지상에 있으면 점프
+        if (InputManager.Instance.Jump)
+        {
+            if (IsGrounded())
+                skill.Jump();
+            // 점프 소리 재생
+            SoundManager.Instance.Play(jumpClip, SoundManager.Sound.Jump);
+        }
         // 지상에서 쉬프트키를 누르면 드리프트
-        if(IsGrounded())
+        if (IsGrounded())
         {
             if (InputManager.Instance.Drift)
             {
@@ -203,14 +216,7 @@ public class PlayerController : MonoBehaviour
             stat.speed = origSpeed;
         }
 
-        // 스페이스바를 누를 때 지상에 있으면 점프
-        if (InputManager.Instance.Jump)
-        {
-            if (IsGrounded()) 
-                skill.Jump();
-            // 점프 소리 재생
-            SoundManager.Instance.Play(jumpClip, SoundManager.Sound.Jump);
-        }
+        
     }
 
     // 충돌했을 때 장애물을 뚫는 오류를 해결하기 위해 작성
