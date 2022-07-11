@@ -14,7 +14,7 @@ public class BoostEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pc.isBooster)
+        if (pc.IsBooster)
         {
             transform.GetChild(0).gameObject.SetActive(true);
         }

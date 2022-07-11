@@ -23,13 +23,13 @@ public class WheelController : MonoBehaviour
     {
         // 차량 상태에 따라 휠 각도를 바꾸고 싶다.
         // 차량이 왼쪽으로 돌고있거나 오른쪽으로 드리프트 중이라면 휠 각도를 왼쪽으로 돌린다.
-        if (((pc._state == PlayerController.PlayerState.Left) && (!pc.isDrift) || ((pc._state == PlayerController.PlayerState.Right) && (pc.isDrift))))
+        if (((pc._state == PlayerController.PlayerState.Left) && (!pc.IsDrift) || ((pc._state == PlayerController.PlayerState.Right) && (pc.IsDrift))))
         {
             lerp = Mathf.Lerp(lerp, -30, Time.deltaTime * 4);
             transform.localEulerAngles = new Vector3(0, lerp, 0);
         }
         // 차량이 오른쪽으로 돌고있거나 왼쪽으로 드리프트 중이라면 휠 각도를 오른쪽으로 돌린다.
-        else if (((pc._state == PlayerController.PlayerState.Right) && (!pc.isDrift) || ((pc._state == PlayerController.PlayerState.Left) && (pc.isDrift))))
+        else if (((pc._state == PlayerController.PlayerState.Right) && (!pc.IsDrift) || ((pc._state == PlayerController.PlayerState.Left) && (pc.IsDrift))))
         {
             lerp = Mathf.Lerp(lerp, 30, Time.deltaTime * 4);
             transform.localEulerAngles = new Vector3(0, lerp, 0);

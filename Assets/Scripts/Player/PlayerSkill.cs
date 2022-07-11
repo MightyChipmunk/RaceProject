@@ -17,8 +17,8 @@ public class PlayerSkill : MonoBehaviour
     {
         stat = gameObject.GetComponent<PlayerStat>();
 
-        origRotSpeed = stat.rotSpeed;
-        origSpeed = stat.speed;
+        origRotSpeed = stat.RotSpeed;
+        origSpeed = stat.Speed;
 
         rig = GetComponent<Rigidbody>();
 
@@ -34,25 +34,21 @@ public class PlayerSkill : MonoBehaviour
     {
         Vector3 dirDrift = transform.rotation * Vector3.left;
 
-        stat.rotSpeed = origRotSpeed * 2;
-        stat.speed = origSpeed / 2;
+        stat.RotSpeed = origRotSpeed * 2;
+        stat.Speed = origSpeed / 2;
 
         transform.position += InputManager.Instance.Horizon * dirDrift * 3 * Time.deltaTime;
 
-        if(stat.boostGauge < 10)
+        if(stat.BoostGauge < 10)
         {
-            stat.boostGauge += 2.0f * Time.deltaTime;
+            stat.BoostGauge += 2.0f * Time.deltaTime;
         }
     }
 
     public void Boost()
     {
-        
-        if (stat.boostGauge >= 0)
-        {
-            stat.speed = origSpeed * 2;
-            stat.boostGauge -= 4.0f * Time.deltaTime;
-        }
+        stat.Speed = origSpeed * 2;
+        stat.BoostGauge -= 4.0f * Time.deltaTime;
     }
 
     public void Jump()

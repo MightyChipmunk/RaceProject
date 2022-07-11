@@ -10,8 +10,10 @@ public class PlayerController : MonoBehaviour
         Left,
         Right,
     }
-    public bool isDrift = false;
-    public bool isBooster = false;
+    bool isDrift = false;
+    public bool IsDrift { get { return isDrift; } }
+    bool isBooster = false;
+    public bool IsBooster { get { return isBooster; } }
 
     bool canMove = false;
     public bool CanMove { get { return canMove; } set { canMove = value; } }
@@ -47,8 +49,8 @@ public class PlayerController : MonoBehaviour
         rig = gameObject.GetComponent<Rigidbody>();
         cam = GameObject.Find("CameraView");
 
-        origSpeed = stat.speed;
-        origRotSpeed = stat.rotSpeed;
+        origSpeed = stat.Speed;
+        origRotSpeed = stat.RotSpeed;
     }
 
     // Update is called once per frame
@@ -101,11 +103,11 @@ public class PlayerController : MonoBehaviour
             // 만약 속도가 0 이상이면
             if (lerp >= -0.1f)
                 // 버튼을 누르는 방향으로 차량이 회전한다.
-                transform.eulerAngles += InputManager.Instance.Horizon * stat.rotSpeed * Time.deltaTime * Vector3.up;
+                transform.eulerAngles += InputManager.Instance.Horizon * stat.RotSpeed * Time.deltaTime * Vector3.up;
             // 속도가 마이너스라면(후진 중이라면)
             else
                 // 버튼을 누르는 반대방향으로 차량이 회전한다.    
-                transform.eulerAngles -= InputManager.Instance.Horizon * stat.rotSpeed * Time.deltaTime * Vector3.up;
+                transform.eulerAngles -= InputManager.Instance.Horizon * stat.RotSpeed * Time.deltaTime * Vector3.up;
         }
         // 공중에서 A, D 키를 누를 때 차량을 좌우로 수평이동하고 싶다.
         else
@@ -120,15 +122,15 @@ public class PlayerController : MonoBehaviour
         if (!IsGrounded())
         {
             // 만약 드리프트 중간에 공중에 뜨면 드리프트 중단
-            stat.speed = origSpeed;
-            stat.rotSpeed = origRotSpeed;
+            stat.Speed = origSpeed;
+            stat.RotSpeed = origRotSpeed;
             isDrift = false;
             // 공중에선 차량이 바라보는 방향 중 Y축 방향을 배제하고 이동하고 싶다.
             dir.y = 0;
             // 공중에서 드리프트를 누르면 차량 좌우 방향을 전환하고 싶다.
             if (InputManager.Instance.Drift)
             {
-                transform.eulerAngles += InputManager.Instance.Horizon * stat.rotSpeed * Time.deltaTime * Vector3.up;
+                transform.eulerAngles += InputManager.Instance.Horizon * stat.RotSpeed * Time.deltaTime * Vector3.up;
             }
         }
         dir.Normalize();
@@ -136,14 +138,14 @@ public class PlayerController : MonoBehaviour
         // 가속도 운동을 구현하고 싶다.
         if (InputManager.Instance.Accel)
         {
-            lerp = Mathf.Lerp(lerp, stat.speed, Time.deltaTime / 10 * stat.accelPower);
+            lerp = Mathf.Lerp(lerp, stat.Speed, Time.deltaTime / 10 * stat.AccelPower);
             transform.position += lerp * dir * Time.deltaTime;
             // 직진 시에 엔진 사운드를 재생한다.
             SoundManager.Instance.Play(engineClip, SoundManager.Sound.Engine, lerp / origSpeed * 2);
         }
         else if (InputManager.Instance.Brake)
         {
-            lerp = Mathf.Lerp(lerp, -stat.speed / 3, Time.deltaTime / 10 * stat.brakePower);
+            lerp = Mathf.Lerp(lerp, -stat.Speed / 3, Time.deltaTime / 10 * stat.BrakePower);
             transform.position += lerp * dir * Time.deltaTime;
             // 브레이크를 누르면 엔진 사운드를 서서히 멈춘다.
             if (lerp > 0)
@@ -184,8 +186,8 @@ public class PlayerController : MonoBehaviour
             else if (InputManager.Instance.DriftEnd)
             {
                 // 드리프트 키를 떼면 속도를 원상복귀
-                stat.speed = origSpeed;
-                stat.rotSpeed = origRotSpeed;
+                stat.Speed = origSpeed;
+                stat.RotSpeed = origRotSpeed;
                 // 드리프트 소리 멈춤
                 SoundManager.Instance.Stop(SoundManager.Sound.Drift);
                 isDrift = false;
@@ -193,18 +195,18 @@ public class PlayerController : MonoBehaviour
         }
 
         // 컨트롤 키를 누르면 부스터
-        if (InputManager.Instance.Boost && stat.boostGauge >= 0)
+        if (InputManager.Instance.Boost && stat.BoostGauge >= 0)
         {
             skill.Boost();
             // 부스터 소리 재생
             SoundManager.Instance.Play(boostClip, SoundManager.Sound.Booster);
             isBooster = true;
         }
-        else if (InputManager.Instance.BoostEnd || stat.boostGauge < 0)
+        else if (InputManager.Instance.BoostEnd || stat.BoostGauge < 0)
         {
             // 부스터 키를 떼거나 부스트 게이지가 없으면 속도를 원상복귀
-            stat.speed = origSpeed;
-            stat.rotSpeed = origRotSpeed;
+            stat.Speed = origSpeed;
+            stat.RotSpeed = origRotSpeed;
             // 부스터 소리 멈춤
             SoundManager.Instance.Stop(SoundManager.Sound.Booster);
             isBooster = false;
@@ -213,7 +215,7 @@ public class PlayerController : MonoBehaviour
         // 부스터와 드리프트를 동시에 할 때의 경우를 따로 빼서 처리
         if (isDrift && isBooster)
         {
-            stat.speed = origSpeed;
+            stat.Speed = origSpeed;
         }
 
         

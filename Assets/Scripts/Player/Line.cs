@@ -22,7 +22,7 @@ public class Line : MonoBehaviour
     void Update()
     {
 
-        if (pc.isDrift)
+        if (pc.IsDrift)
         {
             trail.emitting = true;
             transform.GetChild(0).gameObject.SetActive(true);
