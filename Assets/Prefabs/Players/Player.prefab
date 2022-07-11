@@ -326,7 +326,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 70d8fb4658fae264e95ee0400ea45c77, type: 2}
+  - {fileID: 2100000, guid: b52474c8b4026624f9d83c65b2e405b4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -718,8 +718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b878bebfe420a4b8c4fdcdb072f571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDrift: 0
-  isBooster: 0
   driftClip: {fileID: 8300000, guid: a4aca7f2328214f438891fd0fd0732b6, type: 3}
   boostClip: {fileID: 8300000, guid: d79d1798df0b9df4aaf1111886f2ce81, type: 3}
   jumpClip: {fileID: 8300000, guid: 75adfe9a619833445a701305b983e548, type: 3}
@@ -738,11 +736,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4181446675f661545a88c574b8fe024a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
-  rotSpeed: 80
-  accelPower: 3
-  brakePower: 5
-  boostGauge: 10
 --- !u!114 &1031481419
 MonoBehaviour:
   m_ObjectHideFlags: 0
