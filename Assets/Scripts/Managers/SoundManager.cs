@@ -19,15 +19,11 @@ public class SoundManager : MonoBehaviour
     // 여러 개의 소리를 한번에 재생하기 위해 오디오 소스를 배열로 여러개를 저장
     AudioSource[] _audioSources = new AudioSource[(int)Sound.MaxCount];
 
-    PlayerController pc;
-
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
         Init();
-
-        pc = GameObject.Find("Player").GetComponent<PlayerController>();    
     }
 
     // Update is called once per frame
@@ -39,7 +35,6 @@ public class SoundManager : MonoBehaviour
     public void Init()
     {
         GameObject root = GameObject.Find("SoundManager");
-        Object.DontDestroyOnLoad(root);
 
         string[] soundNames = System.Enum.GetNames(typeof(Sound));
         for (int i = 0; i < soundNames.Length - 1; i++)

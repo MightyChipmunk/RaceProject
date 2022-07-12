@@ -12,6 +12,7 @@ public class TrackCheckpoints : MonoBehaviour
 
     private List<CheckpointSingle> checkpointSingleList;
     private int nextCheckpointSingleIndex;
+    public int NextCheckpointSingleIndex { get { return nextCheckpointSingleIndex; } }
 
 
     private void Awake()
@@ -40,7 +41,6 @@ public class TrackCheckpoints : MonoBehaviour
 
         if (checkpointSingleList.IndexOf(checkpointSingle) == nextCheckpointSingleIndex)
         {
-            Debug.Log("Correct");
             //오류값 수정하기 체크포인트 다돌고 다음턴에서 다시 0 1 2 로 시작
             nextCheckpointSingleIndex = (nextCheckpointSingleIndex + 1) % checkpointSingleList.Count;
 
@@ -50,7 +50,6 @@ public class TrackCheckpoints : MonoBehaviour
         }
         else
         {
-            Debug.Log("Wrong");
             OnPlayerWrongCheckpoint?.Invoke(this, EventArgs.Empty);
 
             return false;

@@ -8,25 +8,22 @@ public class Count : MonoBehaviour
     // 랩타임 표시 텍스트
     Text lapTime;
     // 랩타임 표시를 위한 스트링 변수
-    string s = "";
-    // 현재 랩타임
-    float currentTime = 0;
+    string lapS = "";
+
+    Text score;
+    string scoreS = "";
 
     Text count;
     PlayerController pc;
     bool isStart = false;
 
-    public float CurrentTime
-    {
-        get { return currentTime; }
-        set { currentTime = value; }
-    }
     // Start is called before the first frame update
     void Start()
     {
         pc = GameObject.Find("Player").GetComponent<PlayerController>();
         count = gameObject.GetComponent<Text>();
         lapTime = transform.GetChild(0).GetComponent<Text>();
+        score = transform.GetChild(1).GetComponent<Text>();
         StartCoroutine("CountDown");
     }
 
@@ -35,23 +32,27 @@ public class Count : MonoBehaviour
     {
         if (isStart)
         {
-            currentTime += Time.deltaTime;
-            if (currentTime.ToString().Length < 2)
+            // 랩타임 표시
+            if (GameManager.Instance.LapCount < 5)
+                GameManager.Instance.LapTime += Time.deltaTime;
+            if ((GameManager.Instance.LapTime % 1).ToString().Length < 2)
             {
 
             }
-            else if (currentTime % 60 < 10)
+            else if (GameManager.Instance.LapTime % 60 < 10)
             {
-                s = ((int)(currentTime / 60)).ToString() + ":0" + ((int)(currentTime % 60)).ToString() + "." + (currentTime % 1).ToString().Substring(2, 2);
+                lapS = ((int)(GameManager.Instance.LapTime / 60)).ToString() + ":0" + ((int)(GameManager.Instance.LapTime % 60)).ToString() + "." + (GameManager.Instance.LapTime % 1).ToString().Substring(2, 2);
             }
             else
             {
-                s = ((int)(currentTime / 60)).ToString() + ":" + ((int)(currentTime % 60)).ToString() + "." + (currentTime % 1).ToString().Substring(2, 2);
+                lapS = ((int)(GameManager.Instance.LapTime / 60)).ToString() + ":" + ((int)(GameManager.Instance.LapTime % 60)).ToString() + "." + (GameManager.Instance.LapTime % 1).ToString().Substring(2, 2);
             }
-            lapTime.text = s;
+            lapTime.text = lapS;
+
+            // 스코어 표시
+            scoreS = GameManager.Instance.Score.ToString();
+            score.text = scoreS;
         }
-
-
     }
 
     IEnumerator CountDown()
@@ -64,7 +65,7 @@ public class Count : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         count.text = "Go";
         isStart = true;
-        currentTime = 0;
+        GameManager.Instance.LapTime = 0;
         pc.CanMove = true;
         yield return new WaitForSeconds(1.0f);
         count.enabled = false;

@@ -35,7 +35,8 @@ public class ScoreItem : MonoBehaviour
         // 플레이어와 닿으면 렌더러와 콜라이더를 비활성화
         mr.enabled = false;
         collider.enabled = false;
-        // TODO
+        // 점수 증가
+        GameManager.Instance.Score += 1000;
         // 15초 후에 재생성
         yield return new WaitForSeconds(15);
         mr.enabled = true;

@@ -8,15 +8,14 @@ public class CheckpointSingle : MonoBehaviour
     private MeshRenderer meshRenderer;
     private BoxCollider boxCollider;
 
-    GameObject player;
     PlayerController pc;
-    PlayerStat stat;
 
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
         boxCollider = GetComponent<BoxCollider>();
 
+        GameManager.Instance.OnLapEnd += Show;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,11 +32,10 @@ public class CheckpointSingle : MonoBehaviour
         this.trackCheckpoints = trackCheckpoints;
     }
 
-    public void Show()
+    public void Show(object sender, System.EventArgs e)
     {
         meshRenderer.enabled = true;
         boxCollider.enabled = true;
-
     }
 
     public void Hide()
