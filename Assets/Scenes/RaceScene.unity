@@ -313,20 +313,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 588122285, guid: b9d53a370e8b97f489cb7c55758afbd0, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 588122285, guid: b9d53a370e8b97f489cb7c55758afbd0, type: 3}
       propertyPath: m_CastShadows
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 588122287, guid: b9d53a370e8b97f489cb7c55758afbd0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.8136895
+      objectReference: {fileID: 0}
+    - target: {fileID: 588122287, guid: b9d53a370e8b97f489cb7c55758afbd0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 290.1
+      value: 290.25
       objectReference: {fileID: 0}
     - target: {fileID: 588122288, guid: b9d53a370e8b97f489cb7c55758afbd0, type: 3}
       propertyPath: fin
       value: 
       objectReference: {fileID: 1822072869}
+    - target: {fileID: 588122288, guid: b9d53a370e8b97f489cb7c55758afbd0, type: 3}
+      propertyPath: isStart
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2076405477, guid: b9d53a370e8b97f489cb7c55758afbd0, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -654,38 +662,6 @@ PrefabInstance:
     - target: {fileID: 4382131105721644741, guid: 296f0b558515b0b44a925f6e6f5ee034, type: 3}
       propertyPath: m_Name
       value: UI_RaceScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 4419162793405019403, guid: 296f0b558515b0b44a925f6e6f5ee034, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 4419162793405019403, guid: 296f0b558515b0b44a925f6e6f5ee034, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 4419162793405019403, guid: 296f0b558515b0b44a925f6e6f5ee034, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 201
-      objectReference: {fileID: 0}
-    - target: {fileID: 5043544556574039956, guid: 296f0b558515b0b44a925f6e6f5ee034, type: 3}
-      propertyPath: m_Text
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5043544556574039956, guid: 296f0b558515b0b44a925f6e6f5ee034, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 59a160d8c4f30e24291daa9584f48b8d, type: 3}
-    - target: {fileID: 5043544556574039956, guid: 296f0b558515b0b44a925f6e6f5ee034, type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5043544556574039956, guid: 296f0b558515b0b44a925f6e6f5ee034, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 5043544556574039956, guid: 296f0b558515b0b44a925f6e6f5ee034, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7219575812578300476, guid: 296f0b558515b0b44a925f6e6f5ee034, type: 3}
       propertyPath: m_AnchorMax.x

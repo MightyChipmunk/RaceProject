@@ -8,9 +8,12 @@ public class CheckpointSingle : MonoBehaviour
     private MeshRenderer meshRenderer;
     private BoxCollider boxCollider;
 
+    [SerializeField]
+    bool isStart = false;
+
     PlayerController pc;
 
-    private void Awake()
+    private void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
         boxCollider = GetComponent<BoxCollider>();
@@ -34,7 +37,8 @@ public class CheckpointSingle : MonoBehaviour
 
     public void Show(object sender, System.EventArgs e)
     {
-        meshRenderer.enabled = true;
+        if (!isStart)
+            meshRenderer.enabled = true;
         boxCollider.enabled = true;
     }
 

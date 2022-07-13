@@ -23,6 +23,8 @@ public class InputManager : MonoBehaviour
     public bool BoostEnd { get { return boostEnd; } }
     bool jump;
     public bool Jump { get { return jump; } }
+    bool pause;
+    public bool Pause { get { return pause; } }
 
     void Awake()
     {
@@ -39,5 +41,6 @@ public class InputManager : MonoBehaviour
         boost = Input.GetKey(KeyCode.LeftControl);
         boostEnd = Input.GetKeyUp(KeyCode.LeftControl);
         jump = Input.GetKeyDown(KeyCode.Space);
+        pause = Input.GetKeyUp(KeyCode.Escape);
     }
 }

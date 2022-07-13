@@ -13,6 +13,8 @@ public class Count : MonoBehaviour
     Text score;
     string scoreS = "";
 
+    Text scorePlus;
+
     Text count;
     PlayerController pc;
     bool isStart = false;
@@ -24,7 +26,10 @@ public class Count : MonoBehaviour
         count = gameObject.GetComponent<Text>();
         lapTime = transform.GetChild(0).GetComponent<Text>();
         score = transform.GetChild(1).GetComponent<Text>();
+        scorePlus = transform.GetChild(2).GetComponent<Text>();
         StartCoroutine("CountDown");
+
+        GameManager.Instance.OnScorePlus += PrintScorePlus;
     }
 
     // Update is called once per frame
@@ -33,9 +38,12 @@ public class Count : MonoBehaviour
         if (isStart)
         {
             // ∑¶≈∏¿” «•Ω√
-            if (GameManager.Instance.LapCount < 5)
-                GameManager.Instance.LapTime += Time.deltaTime;
-            if ((GameManager.Instance.LapTime % 1).ToString().Length < 2)
+            if (GameManager.Instance.LapTime >= 0)
+                GameManager.Instance.LapTime -= Time.deltaTime;
+
+            if (GameManager.Instance.LapTime < 0)
+                lapTime.text = "0:00.00";
+            else if ((GameManager.Instance.LapTime % 1).ToString().Length < 2)
             {
 
             }
@@ -55,6 +63,11 @@ public class Count : MonoBehaviour
         }
     }
 
+    void PrintScorePlus(object sender, System.EventArgs e)
+    {
+        StartCoroutine("ScorePlus");
+    }
+
     IEnumerator CountDown()
     {
         count.text = "3";
@@ -65,9 +78,15 @@ public class Count : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         count.text = "Go";
         isStart = true;
-        GameManager.Instance.LapTime = 0;
         pc.CanMove = true;
         yield return new WaitForSeconds(1.0f);
         count.enabled = false;
+    }
+
+    IEnumerator ScorePlus()
+    {
+        scorePlus.text = "+ " + GameManager.Instance.LastScore.ToString();
+        yield return new WaitForSeconds(1.5f);
+        scorePlus.text = "";
     }
 }
