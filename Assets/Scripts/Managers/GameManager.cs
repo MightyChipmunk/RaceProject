@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
         set
         {
             if (score == value) return;
+
             LastScore = value - score;
             score = value;
             if (OnScorePlus != null)
@@ -49,9 +50,12 @@ public class GameManager : MonoBehaviour
         {
             if (lapCount == value) return;
             lapCount = value;
-            if (OnLapEnd != null)
-                OnLapEnd.Invoke(this, EventArgs.Empty);
-            Score += 5000;
+            if (value != 0)
+            {
+                if (OnLapEnd != null)
+                    OnLapEnd.Invoke(this, EventArgs.Empty);
+                Score += 5000;
+            }
         }
         get { return lapCount; }
     }
