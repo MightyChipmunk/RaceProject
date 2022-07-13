@@ -16,7 +16,7 @@ public class MeterController : MonoBehaviour
     PlayerController pc;
     PlayerStat stat;
 
-    private void Awake()
+    private void Start()
     {
         GaugeBarTranform = transform.Find("GaugeBar");
         speed = 0f;

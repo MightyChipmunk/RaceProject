@@ -20,7 +20,7 @@ public class SoundManager : MonoBehaviour
     AudioSource[] _audioSources = new AudioSource[(int)Sound.MaxCount];
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Instance = this;
         Init();

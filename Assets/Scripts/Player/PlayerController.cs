@@ -171,8 +171,13 @@ public class PlayerController : MonoBehaviour
             if (IsGrounded())
                 skill.Jump();
             // 점프 소리 재생
+            SoundManager.Instance.Stop(SoundManager.Sound.Drift);
             SoundManager.Instance.Play(jumpClip, SoundManager.Sound.Jump);
         }
+
+        if (!IsGrounded())
+            SoundManager.Instance.Stop(SoundManager.Sound.Drift); ;
+
         // 지상에서 쉬프트키를 누르면 드리프트
         if (IsGrounded())
         {

@@ -41,6 +41,6 @@ public class InputManager : MonoBehaviour
         boost = Input.GetKey(KeyCode.LeftControl);
         boostEnd = Input.GetKeyUp(KeyCode.LeftControl);
         jump = Input.GetKeyDown(KeyCode.Space);
-        pause = Input.GetKeyUp(KeyCode.Escape);
+        pause = Input.GetKeyDown(KeyCode.Escape);
     }
 }

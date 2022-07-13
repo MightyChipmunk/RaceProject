@@ -48,5 +48,9 @@ public class CheckpointSingle : MonoBehaviour
         boxCollider.enabled = false;
     }
 
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnLapEnd -= Show;
+    }
 }
 

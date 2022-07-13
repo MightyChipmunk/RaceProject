@@ -24,9 +24,9 @@ public class Count : MonoBehaviour
     {
         pc = GameObject.Find("Player").GetComponent<PlayerController>();
         count = gameObject.GetComponent<Text>();
-        lapTime = transform.GetChild(0).GetComponent<Text>();
-        score = transform.GetChild(1).GetComponent<Text>();
-        scorePlus = transform.GetChild(2).GetComponent<Text>();
+        lapTime = transform.Find("LapTime").GetComponent<Text>();
+        score = transform.Find("Score").GetComponent<Text>();
+        scorePlus = transform.Find("ScorePlus").GetComponent<Text>();
         StartCoroutine("CountDown");
 
         GameManager.Instance.OnScorePlus += PrintScorePlus;
@@ -43,7 +43,7 @@ public class Count : MonoBehaviour
 
             if (GameManager.Instance.LapTime < 0)
                 lapTime.text = "0:00.00";
-            else if ((GameManager.Instance.LapTime % 1).ToString().Length < 2)
+            else if ((GameManager.Instance.LapTime % 1).ToString().Length <= 4)
             {
 
             }
@@ -61,6 +61,7 @@ public class Count : MonoBehaviour
             scoreS = GameManager.Instance.Score.ToString();
             score.text = scoreS;
         }
+
     }
 
     void PrintScorePlus(object sender, System.EventArgs e)
@@ -88,5 +89,10 @@ public class Count : MonoBehaviour
         scorePlus.text = "+ " + GameManager.Instance.LastScore.ToString();
         yield return new WaitForSeconds(1.5f);
         scorePlus.text = "";
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnScorePlus -= PrintScorePlus;
     }
 }

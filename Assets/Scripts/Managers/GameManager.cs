@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public event EventHandler OnScorePlus;
     public event EventHandler OnGameEnd;
 
+    public int Choosed { get; set; }
+
     // 스코어 및 시간 관리
     public int LastScore { get; private set; }
     int score = 0;
@@ -58,6 +60,10 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+
+        OnGameEnd = null;
+        OnLapEnd = null;
+        OnScorePlus = null;
     }
 
     // Update is called once per frame
