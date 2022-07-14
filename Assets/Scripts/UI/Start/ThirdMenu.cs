@@ -11,10 +11,10 @@ public class ThirdMenu : MonoBehaviour
     }
     public void BtnPlay2()
     {
-        SceneManager.LoadScene("RaceScene 1");
+        SceneManager.LoadScene("RaceScene 2");
     }
     public void BtnPlay3()
     {
-        SceneManager.LoadScene("RaceScene 1");
+        SceneManager.LoadScene("RaceScene 3");
     }
 }

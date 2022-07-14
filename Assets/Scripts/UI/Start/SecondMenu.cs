@@ -22,7 +22,7 @@ public class SecondMenu : MonoBehaviour
 
     public void BtnPlay3()
     {
-        GameManager.Instance.Choosed = 2;
+        GameManager.Instance.Choosed = 3;
         thirdMenu.SetActive(true);
         this.gameObject.SetActive(false);
     }

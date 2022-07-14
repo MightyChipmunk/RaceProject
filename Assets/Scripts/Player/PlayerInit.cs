@@ -9,6 +9,8 @@ public class PlayerInit : MonoBehaviour
     GameObject Car;
     [SerializeField]
     GameObject Taxi;
+    [SerializeField]
+    GameObject Coupe;
     // Start is called before the first frame update
     void Awake()
     {
@@ -23,6 +25,14 @@ public class PlayerInit : MonoBehaviour
         else if (GameManager.Instance.Choosed == 2)
         {
             player = Instantiate(Taxi);
+            player.transform.position = transform.position;
+            player.transform.rotation = transform.rotation;
+            player.name = "Player";
+            player.transform.SetParent(transform);
+        }
+        else if (GameManager.Instance.Choosed == 3)
+        {
+            player = Instantiate(Coupe);
             player.transform.position = transform.position;
             player.transform.rotation = transform.rotation;
             player.name = "Player";
