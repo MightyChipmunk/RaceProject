@@ -10,7 +10,6 @@ public class GameEnd : MonoBehaviour
     GameObject gamePause;
     Text endText;
     PlayerController pc;
-    AudioListener listener;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +23,6 @@ public class GameEnd : MonoBehaviour
         GameManager.Instance.OnGameEnd += EndScreen;
         
         pc = GameObject.Find("Player").GetComponent<PlayerController>();
-        listener = GameObject.Find("Camera").GetComponent<AudioListener>();
     }
 
     // Update is called once per frame
@@ -87,7 +85,7 @@ public class GameEnd : MonoBehaviour
 
     public void Continue()
     {
-        listener.enabled = true;
+        pc.CanMove = true;
         SoundManager.Instance.UnPause(SoundManager.Sound.Bgm);
         gamePause.SetActive(false);
         Time.timeScale = 1;
