@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -287, y: -146}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 250, y: 0}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &95740553
 CanvasRenderer:
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300020, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a0d3c72390724840a19d5ebcac4e762, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -123,7 +123,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 166531691}
         m_TargetAssemblyTypeName: SecondMenu, Assembly-CSharp
-        m_MethodName: BtnPlay
+        m_MethodName: BtnPlay3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -169,8 +169,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -295, y: 129}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -250, y: 0}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &117833121
 CanvasRenderer:
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300036, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 25c52259d459cde48a9de2d8f6d87877, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -256,7 +256,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 166531691}
         m_TargetAssemblyTypeName: SecondMenu, Assembly-CSharp
-        m_MethodName: BtnPlay
+        m_MethodName: BtnPlay1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &166531690
 RectTransform:
   m_ObjectHideFlags: 0
@@ -393,8 +393,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -287, y: -146}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 250, y: 0}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &196421259
 CanvasRenderer:
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300020, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e935e8c11b4730441b8927a8188f2a4e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -478,9 +478,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SecondMenu, Assembly-CSharp
-        m_MethodName: BtnPlay
+      - m_Target: {fileID: 1251453709}
+        m_TargetAssemblyTypeName: ThirdMenu, Assembly-CSharp
+        m_MethodName: BtnPlay3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -526,8 +526,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -295, y: 129}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -250, y: 0}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &573684851
 CanvasRenderer:
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300036, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 47c76b6f8cc37394c8f5da94826f261d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -611,9 +611,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SecondMenu, Assembly-CSharp
-        m_MethodName: BtnPlay
+      - m_Target: {fileID: 1251453709}
+        m_TargetAssemblyTypeName: ThirdMenu, Assembly-CSharp
+        m_MethodName: BtnPlay1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -713,13 +713,14 @@ GameObject:
   - component: {fileID: 1251453706}
   - component: {fileID: 1251453708}
   - component: {fileID: 1251453707}
+  - component: {fileID: 1251453709}
   m_Layer: 5
   m_Name: ThirdMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1251453706
 RectTransform:
   m_ObjectHideFlags: 0
@@ -779,6 +780,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1251453709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251453705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffb55f0f0c473cb44b594115feb5b115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1385148052
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,8 +828,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -288, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1385148056
 CanvasRenderer:
@@ -846,7 +859,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300026, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
+  m_Sprite: {fileID: 21300000, guid: caded5c01831a244d9a4c941b0310540, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -900,9 +913,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SecondMenu, Assembly-CSharp
-        m_MethodName: BtnPlay
+      - m_Target: {fileID: 1251453709}
+        m_TargetAssemblyTypeName: ThirdMenu, Assembly-CSharp
+        m_MethodName: BtnPlay2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -948,8 +961,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -288, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1696026067
 CanvasRenderer:
@@ -979,7 +992,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300026, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2225f96ffe17ba04489866b3646580eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1035,7 +1048,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 166531691}
         m_TargetAssemblyTypeName: SecondMenu, Assembly-CSharp
-        m_MethodName: BtnPlay
+        m_MethodName: BtnPlay2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1716,7 +1729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5109734987212144967
 RectTransform:
   m_ObjectHideFlags: 0

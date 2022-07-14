@@ -87,7 +87,7 @@ public class Count : MonoBehaviour
     IEnumerator ScorePlus()
     {
         scorePlus.text = "+ " + GameManager.Instance.LastScore.ToString();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
         scorePlus.text = "";
     }
 
