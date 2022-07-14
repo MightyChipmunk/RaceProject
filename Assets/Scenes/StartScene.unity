@@ -123,6 +123,67 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &283617483
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4699374715888992936, guid: f582acaaadc047d448713badbeac7991, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699374715888992938, guid: f582acaaadc047d448713badbeac7991, type: 3}
+      propertyPath: BGM
+      value: 
+      objectReference: {fileID: 8300000, guid: 6b6ff21c91535c846a5a9e2fd9841c88, type: 3}
+    - target: {fileID: 4699374715888992939, guid: f582acaaadc047d448713badbeac7991, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699374715888992939, guid: f582acaaadc047d448713badbeac7991, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.081726074
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699374715888992939, guid: f582acaaadc047d448713badbeac7991, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.6960678
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699374715888992939, guid: f582acaaadc047d448713badbeac7991, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0016098022
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699374715888992939, guid: f582acaaadc047d448713badbeac7991, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699374715888992939, guid: f582acaaadc047d448713badbeac7991, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699374715888992939, guid: f582acaaadc047d448713badbeac7991, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699374715888992939, guid: f582acaaadc047d448713badbeac7991, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699374715888992939, guid: f582acaaadc047d448713badbeac7991, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699374715888992939, guid: f582acaaadc047d448713badbeac7991, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699374715888992939, guid: f582acaaadc047d448713badbeac7991, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f582acaaadc047d448713badbeac7991, type: 3}
 --- !u!1 &990765653
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,10 +296,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: BtnPlay3
       objectReference: {fileID: 0}
+    - target: {fileID: 95740552, guid: 04a20c1ea6197254f88b936b4e6fb03c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a0d3c72390724840a19d5ebcac4e762, type: 3}
     - target: {fileID: 117833119, guid: 04a20c1ea6197254f88b936b4e6fb03c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: BtnPlay1
       objectReference: {fileID: 0}
+    - target: {fileID: 117833120, guid: 04a20c1ea6197254f88b936b4e6fb03c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 25c52259d459cde48a9de2d8f6d87877, type: 3}
     - target: {fileID: 166531689, guid: 04a20c1ea6197254f88b936b4e6fb03c, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -255,6 +324,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ThirdMenu, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 196421258, guid: 04a20c1ea6197254f88b936b4e6fb03c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e935e8c11b4730441b8927a8188f2a4e, type: 3}
     - target: {fileID: 573684849, guid: 04a20c1ea6197254f88b936b4e6fb03c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -267,6 +340,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ThirdMenu, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 573684850, guid: 04a20c1ea6197254f88b936b4e6fb03c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 47c76b6f8cc37394c8f5da94826f261d, type: 3}
     - target: {fileID: 1385148054, guid: 04a20c1ea6197254f88b936b4e6fb03c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -279,10 +356,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ThirdMenu, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 1385148055, guid: 04a20c1ea6197254f88b936b4e6fb03c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: caded5c01831a244d9a4c941b0310540, type: 3}
     - target: {fileID: 1696026065, guid: 04a20c1ea6197254f88b936b4e6fb03c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: BtnPlay2
       objectReference: {fileID: 0}
+    - target: {fileID: 1696026066, guid: 04a20c1ea6197254f88b936b4e6fb03c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2225f96ffe17ba04489866b3646580eb, type: 3}
     - target: {fileID: 2163992898446736055, guid: 04a20c1ea6197254f88b936b4e6fb03c, type: 3}
       propertyPath: m_Name
       value: UI

@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
             LastScore = value - score;
             score = value;
-            if (OnScorePlus != null)
+            if (OnScorePlus != null && value != 0)
                 OnScorePlus.Invoke(this, EventArgs.Empty);
         }
         get { return score; }

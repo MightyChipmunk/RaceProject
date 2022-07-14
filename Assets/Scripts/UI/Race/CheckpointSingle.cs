@@ -24,10 +24,11 @@ public class CheckpointSingle : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.TryGetComponent<PlayerController>(out pc))
+        if (other.TryGetComponent<PlayerController>(out pc) && trackCheckpoints.PlayerThroughCheckpoint(this))
         {
-            if (trackCheckpoints.PlayerThroughCheckpoint(this))
-                Hide();
+            Hide();
+            if (!isStart)
+                GameManager.Instance.Score += 1500;
         }
     }
     public void SetTrackCheckpoints(TrackCheckpoints trackCheckpoints)

@@ -14,6 +14,10 @@ public class SoundManager : MonoBehaviour
         Collide,
         MaxCount,  // 아무것도 아님. 그냥 Sound enum의 개수 세기 위해 추가.
     }
+
+    [SerializeField]
+    AudioClip BGM;
+
     public static SoundManager Instance { get; private set; }
 
     // 여러 개의 소리를 한번에 재생하기 위해 오디오 소스를 배열로 여러개를 저장
@@ -24,6 +28,8 @@ public class SoundManager : MonoBehaviour
     {
         Instance = this;
         Init();
+
+        Play(BGM, Sound.Bgm);
     }
 
     // Update is called once per frame
@@ -109,5 +115,15 @@ public class SoundManager : MonoBehaviour
     {
         AudioSource audioSource = _audioSources[(int)type];
         audioSource.Stop();
+    }
+    public void Pause(Sound type)
+    {
+        AudioSource audioSource = _audioSources[(int)type];
+        audioSource.Pause();
+    }
+    public void UnPause(Sound type)
+    {
+        AudioSource audioSource = _audioSources[(int)type];
+        audioSource.UnPause();
     }
 }

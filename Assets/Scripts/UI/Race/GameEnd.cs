@@ -34,12 +34,14 @@ public class GameEnd : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && gamePause.activeSelf == false)
         {
             listener.enabled = false;
+            SoundManager.Instance.Pause(SoundManager.Sound.Bgm);
             gamePause.SetActive(true);
             Time.timeScale = 0;
         }
         else if (InputManager.Instance.Pause && gamePause.activeSelf)
         {
             listener.enabled = true;
+            SoundManager.Instance.UnPause(SoundManager.Sound.Bgm);
             gamePause.SetActive(false);
             Time.timeScale = 1;
         }
@@ -48,7 +50,10 @@ public class GameEnd : MonoBehaviour
     void EndScreen(object sender, System.EventArgs e)
     {
         gameEnd.SetActive(true);
-        listener.enabled = false;
+        //listener.enabled = false;
+        SoundManager.Instance.Stop(SoundManager.Sound.Booster);
+        SoundManager.Instance.Stop(SoundManager.Sound.Engine);
+        SoundManager.Instance.Stop(SoundManager.Sound.Drift);
         endText.text = "Total Score:\n" + GameManager.Instance.Score.ToString();
         pc.CanMove = false;
     }
@@ -78,6 +83,8 @@ public class GameEnd : MonoBehaviour
 
     public void Continue()
     {
+        listener.enabled = true;
+        SoundManager.Instance.UnPause(SoundManager.Sound.Bgm);
         gamePause.SetActive(false);
         Time.timeScale = 1;
     }

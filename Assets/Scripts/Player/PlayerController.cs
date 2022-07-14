@@ -90,8 +90,8 @@ public class PlayerController : MonoBehaviour
     // 아래로 Raycast를 쏴서 차량이 공중에 있는지 확인하고 싶다.
     bool IsGrounded() 
     {
-        return Physics.Raycast(transform.position + Vector3.up * 0.5f + Vector3.forward, -Vector3.up, 0.8f, LayerMask.GetMask("Block"))
-            || Physics.Raycast(transform.position + Vector3.up * 0.5f - Vector3.forward, -Vector3.up, 0.8f, LayerMask.GetMask("Block"));
+        return  Physics.Raycast(transform.position + Vector3.up * 0.5f - Vector3.forward, -Vector3.up, 0.8f, LayerMask.GetMask("Block"))
+             || Physics.Raycast(transform.position + Vector3.up * 0.5f - Vector3.forward, -Vector3.up, 0.8f, LayerMask.GetMask("Block"));
     }
 
     public void carMove()
