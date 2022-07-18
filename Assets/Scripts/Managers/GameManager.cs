@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public event EventHandler OnGameEnd;
 
     public int Choosed { get; set; }
+    public bool IsMulti { get; set; }
 
     // 스코어 및 시간 관리
     public int LastScore { get; private set; }

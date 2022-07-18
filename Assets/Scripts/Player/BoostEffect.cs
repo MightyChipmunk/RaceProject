@@ -3,12 +3,18 @@ using UnityEngine;
 public class BoostEffect : MonoBehaviour
 {
     PlayerController pc;
+    GameObject booster;
+    GameObject idle;
 
     // Start is called before the first frame update
     void Start()
     {
         pc = transform.parent.GetComponent<PlayerController>();
-        transform.GetChild(0).gameObject.SetActive(false);
+        booster = transform.Find("BoostParticle").gameObject;
+        //idle = transform.Find("IdleParticle").gameObject;
+
+        booster.SetActive(false);
+        //idle.SetActive(true);
     }
 
     // Update is called once per frame
@@ -16,11 +22,13 @@ public class BoostEffect : MonoBehaviour
     {
         if (pc.IsBooster)
         {
-            transform.GetChild(0).gameObject.SetActive(true);
+            booster.SetActive(true);
+            //idle.SetActive(false);
         }
         else
         {
-            transform.GetChild(0).gameObject.SetActive(false);
+            booster.SetActive(false);
+            //idle.SetActive(true);
         }
     }
 }

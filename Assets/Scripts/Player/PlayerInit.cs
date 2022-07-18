@@ -38,6 +38,13 @@ public class PlayerInit : MonoBehaviour
             player.name = "Player";
             player.transform.SetParent(transform);
         }
-
+        else if (GameManager.Instance.Choosed == 0) 
+        { 
+            player = Instantiate(Car);
+            player.transform.position = transform.position;
+            player.transform.rotation = transform.rotation;
+            player.name = "Player";
+            player.transform.SetParent(transform);
+        }
     }
 }
