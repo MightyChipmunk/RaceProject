@@ -23,17 +23,20 @@ public class ScoreEffect : MonoBehaviour
     }
     void Anim()
     {
-        if (time < 0.3f)
+        if (Time.timeScale > 0)
         {
-            transform.localScale += Vector3.one / 100;
-        }
-        else if (time >= 0.3f && time <0.6f) 
-        {
-            transform.localScale -= Vector3.one / 100;
-        }
-        else
-        {
-            transform.localScale = Vector3.one;
+            if (time < 0.3f)
+            {
+                transform.localScale += Vector3.one / 100;
+            }
+            else if (time >= 0.3f && time <0.6f) 
+            {
+                transform.localScale -= Vector3.one / 100;
+            }
+            else
+            {
+                transform.localScale = Vector3.one;
+            }
         }
     }
 

@@ -25,14 +25,17 @@ public class ScorePlusEffect : MonoBehaviour
 
     public void Anim()
     {
-        if (time < 0.6f)
+        if (Time.timeScale > 0)
         {
-            GetComponent<Text>().color = new Color(1, 1, 1, 1f - time / 0.6f);
-            transform.localScale += Vector3.one / 200;
-        }
-        else
-        {
-            transform.localScale = Vector3.one;
+            if (time < 0.6f)
+            {
+                GetComponent<Text>().color = new Color(1, 1, 1, 1f - time / 0.6f);
+                transform.localScale += Vector3.one / 200;
+            }
+            else
+            {
+                transform.localScale = Vector3.one;
+            }
         }
     }
 
