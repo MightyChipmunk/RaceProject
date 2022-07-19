@@ -18,6 +18,7 @@ public class Count : MonoBehaviour
     Text count;
     PlayerController pc;
     bool isStart = false;
+    public bool IsStart { get { return isStart; } set { isStart = value; } }
 
     // Start is called before the first frame update
     void Start()

@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 400262357823414133}
   - component: {fileID: 5084367474458047608}
   - component: {fileID: 9017407492643255786}
+  - component: {fileID: 5341054173896424369}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -289,6 +290,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0
+--- !u!114 &5341054173896424369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130869903445395982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81bc083e07be4c42b72b8deba872b9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3961259278081984584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,6 +1061,7 @@ GameObject:
   - component: {fileID: 4096588305072712351}
   - component: {fileID: 4096588305072712349}
   - component: {fileID: 4096588305072712348}
+  - component: {fileID: 3858109348815887874}
   m_Layer: 5
   m_Name: ScorePlus
   m_TagString: Untagged
@@ -1117,6 +1131,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+--- !u!114 &3858109348815887874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4096588305072712350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64171f69a21d6b4b870295aa69947da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4096588305095923752
 GameObject:
   m_ObjectHideFlags: 0

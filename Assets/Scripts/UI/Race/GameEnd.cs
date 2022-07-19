@@ -8,6 +8,7 @@ public class GameEnd : MonoBehaviour
 {
     GameObject gameEnd;
     GameObject gamePause;
+    Count count;
     Text endText;
     PlayerController pc;
     PlayerController pc2;
@@ -28,6 +29,8 @@ public class GameEnd : MonoBehaviour
         {
             pc2 = GameObject.Find("Player2").GetComponent<PlayerController>();
         }
+
+        count = transform.Find("IngamePanel").transform.Find("Count").GetComponent<Count>();
     }
 
     // Update is called once per frame
@@ -54,8 +57,9 @@ public class GameEnd : MonoBehaviour
         else if (InputManager.Instance.Pause && gamePause.activeSelf)
         {
             SoundManager.Instance.UnPause(SoundManager.Sound.Bgm);
-            pc.CanMove = true;
-            if (GameManager.Instance.IsMulti)
+            if (count.IsStart)
+                pc.CanMove = true;
+            if (GameManager.Instance.IsMulti && count.IsStart)
             {
                 pc2.CanMove = true;
             }
