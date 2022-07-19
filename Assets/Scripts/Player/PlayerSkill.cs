@@ -21,7 +21,7 @@ public class PlayerSkill : MonoBehaviour
         origSpeed = stat.Speed;
 
         rig = GetComponent<Rigidbody>();
-
+        pc = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -37,9 +37,12 @@ public class PlayerSkill : MonoBehaviour
         stat.RotSpeed = origRotSpeed * 2;
         stat.Speed = origSpeed / 2;
 
-        transform.position += InputManager.Instance.Horizon * dirDrift * 3 * Time.deltaTime;
+        if (!pc.Is2P)
+            transform.position += InputManager.Instance.Horizon * dirDrift * 3 * Time.deltaTime;
+        else if (pc.Is2P)
+            transform.position += InputManager.Instance.Horizon2 * dirDrift * 3 * Time.deltaTime;
 
-        if(stat.BoostGauge < 10)
+        if (stat.BoostGauge < 10)
         {
             stat.BoostGauge += 2.0f * Time.deltaTime;
         }

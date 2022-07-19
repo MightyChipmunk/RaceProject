@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckpointSingle : MonoBehaviour
+public class CheckpointSingle_Multi : MonoBehaviour
 {
-    private TrackCheckpoints trackCheckpoints;
+    private TrackCheckpoints_Multi trackCheckpoints;
     private MeshRenderer meshRenderer;
     private BoxCollider boxCollider;
 
@@ -18,23 +18,23 @@ public class CheckpointSingle : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
         boxCollider = GetComponent<BoxCollider>();
 
-        GameManager.Instance.OnLapEnd += Show;
+        GameManager_Multi.Instance.OnLapEnd += Show;
     }
 
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.TryGetComponent<PlayerController>(out pc) && !pc.Is2P)
+        if (other.TryGetComponent<PlayerController>(out pc) && pc.Is2P)
         {
             if (trackCheckpoints.PlayerThroughCheckpoint(this))
             {
                 Hide();
                 if (!isStart)
-                    GameManager.Instance.Score += 1500;
+                    GameManager_Multi.Instance.Score += 1500;
             }
         }
     }
-    public void SetTrackCheckpoints(TrackCheckpoints trackCheckpoints)
+    public void SetTrackCheckpoints(TrackCheckpoints_Multi trackCheckpoints)
     {
         this.trackCheckpoints = trackCheckpoints;
     }
@@ -54,7 +54,7 @@ public class CheckpointSingle : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameManager.Instance.OnLapEnd -= Show;
+        GameManager_Multi.Instance.OnLapEnd -= Show;
     }
 }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScoreItem : MonoBehaviour
 {
     public float rotSpeed = 30.0f;
-    PlayerStat ps;
+    PlayerController pc;
 
     MeshRenderer mr;
     BoxCollider collider;
@@ -24,7 +24,7 @@ public class ScoreItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<PlayerStat>(out ps))
+        if (other.TryGetComponent<PlayerController>(out pc))
         {
             StartCoroutine("Disable");
         }
@@ -36,7 +36,10 @@ public class ScoreItem : MonoBehaviour
         mr.enabled = false;
         collider.enabled = false;
         // 점수 증가
-        GameManager.Instance.Score += 1000;
+        if (!pc.Is2P)
+            GameManager.Instance.Score += 1000;
+        else if (pc.Is2P)
+            GameManager_Multi.Instance.Score += 1000;
         // 15초 후에 재생성
         yield return new WaitForSeconds(15);
         mr.enabled = true;

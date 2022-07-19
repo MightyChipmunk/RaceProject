@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: -2844195898033784962}
   - component: {fileID: 5086636252503126671}
   m_Layer: 0
-  m_Name: Taxi
+  m_Name: Taxi_Multi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -432,6 +432,7 @@ MonoBehaviour:
   jumpClip: {fileID: 8300000, guid: 75adfe9a619833445a701305b983e548, type: 3}
   engineClip: {fileID: 8300000, guid: 316224186e8ae6543990a05f4dc13981, type: 3}
   collideClip: {fileID: 8300000, guid: 5ff823f546b52574a931e1d9b44290a6, type: 3}
+  is2P: 1
   _state: 0
 --- !u!114 &-2910536353638614664
 MonoBehaviour:

@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager_Multi : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager_Multi Instance;
     // 차량이 한바퀴 돌때마다 이벤트
     public event EventHandler OnLapEnd;
     public event EventHandler OnScorePlus;

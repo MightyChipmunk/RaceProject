@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MenuPanel : MonoBehaviour
 { 
-    [SerializeField] GameObject gosecond = null;
+    [SerializeField] GameObject goFirst = null;
 
     public void BtnPlay()
     {
-        gosecond.SetActive(true);
+        goFirst.SetActive(true);
         this.gameObject.SetActive(false);
     }
 }
