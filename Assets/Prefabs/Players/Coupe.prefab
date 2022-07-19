@@ -478,6 +478,7 @@ MonoBehaviour:
   jumpClip: {fileID: 8300000, guid: 75adfe9a619833445a701305b983e548, type: 3}
   engineClip: {fileID: 8300000, guid: 316224186e8ae6543990a05f4dc13981, type: 3}
   collideClip: {fileID: 8300000, guid: 5ff823f546b52574a931e1d9b44290a6, type: 3}
+  is2P: 0
   _state: 0
 --- !u!114 &4390310981667319840
 MonoBehaviour:
@@ -491,7 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4181446675f661545a88c574b8fe024a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 25
   rotSpeed: 100
   accelPower: 4
   brakePower: 6

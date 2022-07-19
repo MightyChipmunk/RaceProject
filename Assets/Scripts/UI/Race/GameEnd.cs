@@ -70,7 +70,17 @@ public class GameEnd : MonoBehaviour
         SoundManager.Instance.Stop(SoundManager.Sound.Booster);
         SoundManager.Instance.Stop(SoundManager.Sound.Engine);
         SoundManager.Instance.Stop(SoundManager.Sound.Drift);
-        endText.text = "Total Score:\n" + GameManager.Instance.Score.ToString();
+        if (!GameManager.Instance.IsMulti)
+            endText.text = "Total Score:\n" + GameManager.Instance.Score.ToString();
+        else if (GameManager.Instance.IsMulti)
+        {
+            if (GameManager_Multi.Instance.Score > GameManager.Instance.Score)
+                endText.text = "Winner:\nPlayer 2!";
+            else if (GameManager_Multi.Instance.Score < GameManager.Instance.Score)
+                endText.text = "Winner:\nPlayer 1!";
+            else
+                endText.text = "Draw!";
+        }
         pc.CanMove = false; 
         if (GameManager.Instance.IsMulti)
         {

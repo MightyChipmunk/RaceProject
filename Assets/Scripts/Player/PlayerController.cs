@@ -402,5 +402,10 @@ public class PlayerController : MonoBehaviour
             lerp = 0;
             SoundManager_Multi.Instance.Play(collideClip, SoundManager_Multi.Sound.Collide);
         }
+
+        if (collision.gameObject.name.Contains("Player"))
+        {
+            SoundManager.Instance.Play(collideClip, SoundManager.Sound.Collide);
+        }
     }
 }
