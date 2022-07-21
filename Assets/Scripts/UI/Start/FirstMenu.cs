@@ -5,6 +5,12 @@ using UnityEngine;
 public class FirstMenu : MonoBehaviour
 {
     [SerializeField] GameObject goSecond = null;
+
+    private void Start()
+    {
+        //gameObject.SetActive(false);
+    }
+
     public void BtnPlay1()
     {
         goSecond.SetActive(true);
@@ -19,4 +25,5 @@ public class FirstMenu : MonoBehaviour
 
         GameManager.Instance.IsMulti = true;
     }
+
 }

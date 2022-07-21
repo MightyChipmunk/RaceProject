@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class ThirdMenu : MonoBehaviour
 {
+    private void Start()
+    {
+        //gameObject.SetActive(false);
+    }
     public void BtnPlay1()
     {
         if (!GameManager.Instance.IsMulti)

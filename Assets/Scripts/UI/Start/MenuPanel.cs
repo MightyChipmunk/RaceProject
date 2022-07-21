@@ -12,6 +12,11 @@ public class MenuPanel : MonoBehaviour
     //    this.gameObject.SetActive(false);
     //}
 
+    private void Start()
+    {
+        gameObject.SetActive(true);
+    }
+
     private void Update()
     {
         if (Input.anyKeyDown)
