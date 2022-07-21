@@ -12,9 +12,9 @@ public class MenuPanel : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        title.transform.localScale = Vector3.zero;
+        title.transform.localPosition = new Vector3 (-600, 90, 0);
 
-        iTween.ScaleTo(title, iTween.Hash("x", 1, "y", 1, "z", 1,  "time", 0.5f, "easetype", iTween.EaseType.easeOutBack, "delay", 0.5f));
+        iTween.MoveTo(title, iTween.Hash("x", 0, "y", 90, "z", 1, "islocal", true, "time", 0.5f, "easetype", iTween.EaseType.easeOutBack, "delay", 0.2f));
 
     }
 
