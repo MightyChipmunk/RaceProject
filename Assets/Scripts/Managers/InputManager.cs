@@ -80,10 +80,10 @@ public class InputManager : MonoBehaviour
         horizon2 = Input.GetAxis("Horizontal2");
         accel2 = Input.GetKey(KeyCode.P);
         brake2 = Input.GetKey(KeyCode.Semicolon);
-        drift2 = Input.GetKey(KeyCode.KeypadPlus);
-        driftEnd2 = Input.GetKeyUp(KeyCode.KeypadPlus);
-        boost2 = Input.GetKey(KeyCode.KeypadEnter);
-        boostEnd2 = Input.GetKeyUp(KeyCode.KeypadEnter);
-        jump2 = Input.GetKeyDown(KeyCode.Keypad0);
+        drift2 = Input.GetKey(KeyCode.M);
+        driftEnd2 = Input.GetKeyUp(KeyCode.M);
+        boost2 = Input.GetKey(KeyCode.N);
+        boostEnd2 = Input.GetKeyUp(KeyCode.N);
+        jump2 = Input.GetKeyDown(KeyCode.B);
     }
 }

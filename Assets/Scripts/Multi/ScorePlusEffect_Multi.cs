@@ -30,7 +30,7 @@ public class ScorePlusEffect_Multi : MonoBehaviour
             if (time < 0.6f)
             {
                 GetComponent<Text>().color = new Color(1, 1, 1, 1f - time / 0.6f);
-                transform.localScale += Vector3.one / 200;
+                transform.localScale += Vector3.one / 400;
             }
             else
             {

@@ -6,10 +6,19 @@ public class MenuPanel : MonoBehaviour
 { 
     [SerializeField] GameObject goFirst = null;
 
-    public void BtnPlay()
+    //public void BtnPlay()
+    //{
+    //    goFirst.SetActive(true);
+    //    this.gameObject.SetActive(false);
+    //}
+
+    private void Update()
     {
-        goFirst.SetActive(true);
-        this.gameObject.SetActive(false);
+        if (Input.anyKeyDown)
+        {
+            goFirst.SetActive(true);
+            this.gameObject.SetActive(false);
+        }
     }
 }
 
