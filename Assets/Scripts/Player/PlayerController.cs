@@ -75,14 +75,14 @@ public class PlayerController : MonoBehaviour
         // 공중에서 차량의 각도를 제한하고 싶다.
         float rx = transform.eulerAngles.z;
         float rz = transform.eulerAngles.x;
-        if (rx > 60 && rx < 180)
-            rx = 60;
-        else if (rx < 300 && rx > 180)
-            rx = 300;
-        if (rz > 60 && rz < 180)
-            rz = 60;
-        else if (rz < 300 && rz > 180)
-            rz = 300;
+        if (rx > 40 && rx < 200)
+            rx = 40;
+        else if (rx < 320 && rx > 200)
+            rx = 320;
+        if (rz > 40 && rz < 200)
+            rz = 40;
+        else if (rz < 320 && rz > 2000)
+            rz = 320;
         transform.eulerAngles = new Vector3(rz, transform.eulerAngles.y, rx);
 
         // 현재 직진인지 좌회전인지 우회전인지 확인
@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // 체공시간을 늘리고 싶다.
-        rig.AddForce(Vector3.up * 10.0f * Time.deltaTime);
+        //rig.AddForce(Vector3.up * 10.0f * Time.deltaTime);
 
         // 스페이스바를 누를 때 지상에 있으면 점프
         if (InputManager.Instance.Jump)
@@ -326,7 +326,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // 체공시간을 늘리고 싶다.
-        rig.AddForce(Vector3.up * 10.0f * Time.deltaTime);
+        //rig.AddForce(Vector3.up * 10.0f * Time.deltaTime);
 
         // 스페이스바를 누를 때 지상에 있으면 점프
         if (InputManager.Instance.Jump2)

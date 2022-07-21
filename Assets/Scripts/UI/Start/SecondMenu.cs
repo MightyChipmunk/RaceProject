@@ -57,8 +57,16 @@ public class SecondMenu : MonoBehaviour
             else if (cnt == 1)
             {
                 GameManager.Instance.Choosed_2 = 1;
-                player2.GetComponent<Text>().enabled = true;
-                player2.GetComponent<RectTransform>().localPosition = new Vector3(-250, -195, 0);
+                if (GameManager.Instance.Choosed != 1)
+                { 
+                    player2.GetComponent<Text>().enabled = true;
+                    player2.GetComponent<RectTransform>().localPosition = new Vector3(-250, -195, 0);
+                }
+                else
+                {
+                    player2.GetComponent<Text>().enabled = true;
+                    player2.GetComponent<RectTransform>().localPosition = new Vector3(-250, -145, 0);
+                }
             }
 
             cnt--;
@@ -85,8 +93,16 @@ public class SecondMenu : MonoBehaviour
             else if (cnt == 1)
             {
                 GameManager.Instance.Choosed_2 = 2;
-                player2.GetComponent<Text>().enabled = true;
-                player2.GetComponent<RectTransform>().localPosition = new Vector3(0, -195, 0);
+                if (GameManager.Instance.Choosed != 2)
+                {
+                    player2.GetComponent<Text>().enabled = true;
+                    player2.GetComponent<RectTransform>().localPosition = new Vector3(0, -195, 0);
+                }
+                else
+                {
+                    player2.GetComponent<Text>().enabled = true;
+                    player2.GetComponent<RectTransform>().localPosition = new Vector3(0, -145, 0);
+                }
             }
 
             cnt--;
@@ -113,8 +129,16 @@ public class SecondMenu : MonoBehaviour
             else if (cnt == 1)
             {
                 GameManager.Instance.Choosed_2 = 3;
-                player2.GetComponent<Text>().enabled = true;
-                player2.GetComponent<RectTransform>().localPosition = new Vector3(250, -195, 0);
+                if (GameManager.Instance.Choosed != 3)
+                {
+                    player2.GetComponent<Text>().enabled = true;
+                    player2.GetComponent<RectTransform>().localPosition = new Vector3(250, -195, 0);
+                }
+                else
+                {
+                    player2.GetComponent<Text>().enabled = true;
+                    player2.GetComponent<RectTransform>().localPosition = new Vector3(250, -145, 0);
+                }
             }
 
             cnt--;
