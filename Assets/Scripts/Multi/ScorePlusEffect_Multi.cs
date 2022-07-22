@@ -42,6 +42,8 @@ public class ScorePlusEffect_Multi : MonoBehaviour
     void IsScorePlus(object sender, System.EventArgs e)
     {
         StartCoroutine("ScorePlus");
+        gameObject.transform.localScale = Vector3.zero;
+        iTween.ScaleTo(gameObject, iTween.Hash("x", 1, "y", 1, "z", 1, "time", 0.6f, "easetype", iTween.EaseType.easeOutCirc));
     }
 
     IEnumerator ScorePlus()

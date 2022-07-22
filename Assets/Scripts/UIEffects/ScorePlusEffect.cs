@@ -42,6 +42,8 @@ public class ScorePlusEffect : MonoBehaviour
     void IsScorePlus(object sender, System.EventArgs e)
     {
         StartCoroutine("ScorePlus");
+        gameObject.transform.localScale = Vector3.zero;
+        iTween.ScaleTo(gameObject, iTween.Hash("x", 1, "y", 1, "z", 1, "time", 0.6f, "easetype", iTween.EaseType.easeOutCirc));
     }
 
     IEnumerator ScorePlus()
@@ -51,6 +53,7 @@ public class ScorePlusEffect : MonoBehaviour
         scorePlus = false;
         time = 0;
     }
+
     private void OnDestroy()
     {
         GameManager.Instance.OnScorePlus -= IsScorePlus;

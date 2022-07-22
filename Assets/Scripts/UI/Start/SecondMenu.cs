@@ -33,6 +33,10 @@ public class SecondMenu : MonoBehaviour
 
         player1.GetComponent<Text>().enabled = false;
         player2.GetComponent<Text>().enabled = false;
+
+        player1.transform.position = new Vector3(400, -195, 0);
+        player2.transform.position = new Vector3(400, -195, 0);
+
         reselect.SetActive(false);
         next.SetActive(false);
     }
@@ -51,7 +55,8 @@ public class SecondMenu : MonoBehaviour
             {
                 GameManager.Instance.Choosed = 1;
                 player1.GetComponent<Text>().enabled = true;
-                player1.GetComponent<RectTransform>().localPosition = new Vector3(-250, -195, 0);
+                iTween.MoveTo(player1, iTween.Hash("x", -250, "y", -195, "z", 0, "time", 0.3f, "islocal", true, "easetype", iTween.EaseType.easeOutCirc));
+                //player1.GetComponent<RectTransform>().localPosition = new Vector3(-250, -195, 0);
                 annouce.text = "Choose Player2 Car";
             }
             else if (cnt == 1)
@@ -60,12 +65,14 @@ public class SecondMenu : MonoBehaviour
                 if (GameManager.Instance.Choosed != 1)
                 { 
                     player2.GetComponent<Text>().enabled = true;
-                    player2.GetComponent<RectTransform>().localPosition = new Vector3(-250, -195, 0);
+                    iTween.MoveTo(player2, iTween.Hash("x", -250, "y", -195, "z", 0, "time", 0.3f, "islocal", true, "easetype", iTween.EaseType.easeOutCirc));
+                    //player2.GetComponent<RectTransform>().localPosition = new Vector3(-250, -195, 0);
                 }
                 else
                 {
                     player2.GetComponent<Text>().enabled = true;
-                    player2.GetComponent<RectTransform>().localPosition = new Vector3(-250, -145, 0);
+                    iTween.MoveTo(player2, iTween.Hash("x", -250, "y", -145, "z", 0, "time", 0.3f, "islocal", true, "easetype", iTween.EaseType.easeOutCirc));
+                    //player2.GetComponent<RectTransform>().localPosition = new Vector3(-250, -145, 0);
                 }
             }
 
@@ -87,7 +94,8 @@ public class SecondMenu : MonoBehaviour
             {
                 GameManager.Instance.Choosed = 2;
                 player1.GetComponent<Text>().enabled = true;
-                player1.GetComponent<RectTransform>().localPosition = new Vector3(0, -195, 0);
+                iTween.MoveTo(player1, iTween.Hash("x", 0, "y", -195, "z", 0, "time", 0.3f, "islocal", true, "easetype", iTween.EaseType.easeOutCirc));
+                //player1.GetComponent<RectTransform>().localPosition = new Vector3(-0, -195, 0);
                 annouce.text = "Choose Player2 Car";
             }
             else if (cnt == 1)
@@ -96,12 +104,14 @@ public class SecondMenu : MonoBehaviour
                 if (GameManager.Instance.Choosed != 2)
                 {
                     player2.GetComponent<Text>().enabled = true;
-                    player2.GetComponent<RectTransform>().localPosition = new Vector3(0, -195, 0);
+                    iTween.MoveTo(player2, iTween.Hash("x", 0, "y", -195, "z", 0, "time", 0.3f, "islocal", true, "easetype", iTween.EaseType.easeOutCirc));
+                    //player2.GetComponent<RectTransform>().localPosition = new Vector3(-0, -195, 0);
                 }
                 else
                 {
                     player2.GetComponent<Text>().enabled = true;
-                    player2.GetComponent<RectTransform>().localPosition = new Vector3(0, -145, 0);
+                    iTween.MoveTo(player2, iTween.Hash("x", 0, "y", -145, "z", 0, "time", 0.3f, "islocal", true, "easetype", iTween.EaseType.easeOutCirc));
+                    //player2.GetComponent<RectTransform>().localPosition = new Vector3(-0, -145, 0);
                 }
             }
 
@@ -123,7 +133,8 @@ public class SecondMenu : MonoBehaviour
             {
                 GameManager.Instance.Choosed = 3;
                 player1.GetComponent<Text>().enabled = true;
-                player1.GetComponent<RectTransform>().localPosition = new Vector3(250, -195, 0);
+                iTween.MoveTo(player1, iTween.Hash("x", 250, "y", -195, "z", 0, "time", 0.3f, "islocal", true, "easetype", iTween.EaseType.easeOutCirc));
+                //player1.GetComponent<RectTransform>().localPosition = new Vector3(-0, -195, 0);
                 annouce.text = "Choose Player2 Car";
             }
             else if (cnt == 1)
@@ -132,12 +143,14 @@ public class SecondMenu : MonoBehaviour
                 if (GameManager.Instance.Choosed != 3)
                 {
                     player2.GetComponent<Text>().enabled = true;
-                    player2.GetComponent<RectTransform>().localPosition = new Vector3(250, -195, 0);
+                    iTween.MoveTo(player2, iTween.Hash("x", 250, "y", -195, "z", 0, "time", 0.3f, "islocal", true, "easetype", iTween.EaseType.easeOutCirc));
+                    //player2.GetComponent<RectTransform>().localPosition = new Vector3(-0, -195, 0);
                 }
                 else
                 {
                     player2.GetComponent<Text>().enabled = true;
-                    player2.GetComponent<RectTransform>().localPosition = new Vector3(250, -145, 0);
+                    iTween.MoveTo(player2, iTween.Hash("x", 250, "y", -145, "z", 0, "time", 0.3f, "islocal", true, "easetype", iTween.EaseType.easeOutCirc));
+                    //player2.GetComponent<RectTransform>().localPosition = new Vector3(-0, -145, 0);
                 }
             }
 
@@ -158,6 +171,8 @@ public class SecondMenu : MonoBehaviour
         cnt = 2;
         player1.GetComponent<Text>().enabled = false;
         player2.GetComponent<Text>().enabled = false;
+        player1.transform.position = new Vector3(400, -195, 0);
+        player2.transform.position = new Vector3(400, -195, 0);
         next.SetActive(false);
         reselect.SetActive(false);
         annouce.text = "Choose Player1 Car";

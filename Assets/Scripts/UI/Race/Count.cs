@@ -30,6 +30,8 @@ public class Count : MonoBehaviour
         scorePlus = transform.Find("ScorePlus").GetComponent<Text>();
         StartCoroutine("CountDown");
 
+        score.enabled = false;
+        lapTime.enabled = false;
         GameManager.Instance.OnScorePlus += PrintScorePlus;
     }
 
@@ -72,15 +74,23 @@ public class Count : MonoBehaviour
 
     IEnumerator CountDown()
     {
+        count.transform.localScale = Vector3.zero;
         count.text = "3";
+        iTween.ScaleTo(count.gameObject, iTween.Hash("x", 1, "y", 1, "z", 1, "time", 0.9f, "easetype", iTween.EaseType.easeOutCirc));
         yield return new WaitForSeconds(1.0f);
+        count.transform.localScale = Vector3.zero;
         count.text = "2";
+        iTween.ScaleTo(count.gameObject, iTween.Hash("x", 1, "y", 1, "z", 1, "time", 0.9f, "easetype", iTween.EaseType.easeOutCirc));
         yield return new WaitForSeconds(1.0f);
+        count.transform.localScale = Vector3.zero;
         count.text = "1";
+        iTween.ScaleTo(count.gameObject, iTween.Hash("x", 1, "y", 1, "z", 1, "time", 0.9f, "easetype", iTween.EaseType.easeOutCirc));
         yield return new WaitForSeconds(1.0f);
-        count.text = "Go";
+        count.text = "Go!";
         isStart = true;
         pc.CanMove = true;
+        score.enabled = true;
+        lapTime.enabled = true;
         yield return new WaitForSeconds(1.0f);
         count.enabled = false;
     }

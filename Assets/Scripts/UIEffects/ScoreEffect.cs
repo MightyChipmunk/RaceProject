@@ -15,34 +15,36 @@ public class ScoreEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (scorePlus)
-        {
-            time += Time.deltaTime;
-            Anim();
-        }
+        //if (scorePlus)
+        //{
+        //    time += Time.deltaTime;
+        //    Anim();
+        //}
     }
-    void Anim()
-    {
-        if (Time.timeScale > 0)
-        {
-            if (time < 0.3f)
-            {
-                transform.localScale += Vector3.one / 100;
-            }
-            else if (time >= 0.3f && time <0.6f) 
-            {
-                transform.localScale -= Vector3.one / 100;
-            }
-            else
-            {
-                transform.localScale = Vector3.one;
-            }
-        }
-    }
+    //void Anim()
+    //{
+    //    if (Time.timeScale > 0)
+    //    {
+    //        if (time < 0.3f)
+    //        {
+    //            transform.localScale += Vector3.one / 100;
+    //        }
+    //        else if (time >= 0.3f && time <0.6f) 
+    //        {
+    //            transform.localScale -= Vector3.one / 100;
+    //        }
+    //        else
+    //        {
+    //            transform.localScale = Vector3.one;
+    //        }
+    //    }
+    //}
 
     void IsScorePlus(object sender, System.EventArgs e)
     {
-        StartCoroutine("TimePlus");
+        //StartCoroutine("TimePlus");
+        transform.localScale = Vector3.zero;
+        iTween.ScaleTo(gameObject, iTween.Hash("x", 1, "y", 1, "z", 1, "time", 0.8f, "easetype", iTween.EaseType.easeOutElastic));
     }
 
     IEnumerator TimePlus()
