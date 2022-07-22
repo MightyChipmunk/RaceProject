@@ -7,7 +7,11 @@ using UnityEngine.UI;
 public class GameEnd : MonoBehaviour
 {
     GameObject gameEnd;
+    GameObject scoreEnd;
     GameObject gamePause;
+    GameObject title;
+    GameObject retry;
+    GameObject quit;
     Count count;
     Text endText;
     PlayerController pc;
@@ -16,7 +20,8 @@ public class GameEnd : MonoBehaviour
     void Start()
     {
         gameEnd = transform.Find("GameEnd").gameObject;
-        endText = gameEnd.transform.Find("ScoreEnd").GetComponent<Text>();
+        scoreEnd = gameEnd.transform.Find("ScoreEnd").gameObject;
+        endText = scoreEnd.GetComponent<Text>();
         gameEnd.SetActive(false);
 
         gamePause = transform.Find("GamePause").gameObject;
@@ -31,6 +36,10 @@ public class GameEnd : MonoBehaviour
         }
 
         count = transform.Find("IngamePanel").transform.Find("Count").GetComponent<Count>();
+
+        title = gameEnd.transform.Find("TitleButton").gameObject;
+        retry = gameEnd.transform.Find("RetryButton").gameObject;
+        quit = gameEnd.transform.Find("QuitButton").gameObject;
     }
 
     // Update is called once per frame
@@ -75,15 +84,31 @@ public class GameEnd : MonoBehaviour
         SoundManager.Instance.Stop(SoundManager.Sound.Engine);
         SoundManager.Instance.Stop(SoundManager.Sound.Drift);
         if (!GameManager.Instance.IsMulti)
+        {
             endText.text = "Total Score:\n" + GameManager.Instance.Score.ToString();
+            scoreEnd.transform.localScale = Vector3.zero;
+            iTween.ScaleTo(scoreEnd, iTween.Hash("x", 1, "y", 1, "z", 1, "time", 0.8f, "easetype", iTween.EaseType.easeOutElastic));
+        }
         else if (GameManager.Instance.IsMulti)
         {
             if (GameManager_Multi.Instance.Score > GameManager.Instance.Score)
+            {
                 endText.text = "Winner:\nPlayer 2!";
+                scoreEnd.transform.localScale = Vector3.zero;
+                iTween.ScaleTo(scoreEnd, iTween.Hash("x", 1, "y", 1, "z", 1, "time", 0.8f, "easetype", iTween.EaseType.easeOutElastic));
+            }
             else if (GameManager_Multi.Instance.Score < GameManager.Instance.Score)
+            {
                 endText.text = "Winner:\nPlayer 1!";
+                scoreEnd.transform.localScale = Vector3.zero;
+                iTween.ScaleTo(scoreEnd, iTween.Hash("x", 1, "y", 1, "z", 1, "time", 0.8f, "easetype", iTween.EaseType.easeOutElastic));
+            }
             else
+            {
                 endText.text = "Draw!";
+                scoreEnd.transform.localScale = Vector3.zero;
+                iTween.ScaleTo(scoreEnd, iTween.Hash("x", 1, "y", 1, "z", 1, "time", 0.8f, "easetype", iTween.EaseType.easeOutElastic));
+            }
         }
         pc.CanMove = false; 
         if (GameManager.Instance.IsMulti)
@@ -93,6 +118,13 @@ public class GameEnd : MonoBehaviour
             SoundManager_Multi.Instance.Stop(SoundManager_Multi.Sound.Drift);
             pc2.CanMove = false;
         }
+
+        title.transform.localPosition = new Vector3(0, -300, 0);
+        retry.transform.localPosition = new Vector3(0, -300, 0);
+        quit.transform.localPosition = new Vector3(0, -300, 0);
+        iTween.MoveTo(title, iTween.Hash("x", 0, "y", -2, "z", 0, "time", 0.8f, "easetype", iTween.EaseType.easeOutCirc, "delay", 0, "islocal", true));
+        iTween.MoveTo(retry, iTween.Hash("x", 0, "y", -79, "z", 0, "time", 0.8f, "easetype", iTween.EaseType.easeOutCirc, "delay", 0.3f, "islocal", true));
+        iTween.MoveTo(quit, iTween.Hash("x", 0, "y", -156, "z", 0, "time", 0.8f, "easetype", iTween.EaseType.easeOutCirc, "delay", 0.6f, "islocal", true));
     }
 
     public void Retry()
