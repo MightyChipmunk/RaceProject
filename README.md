@@ -3,6 +3,11 @@
 
 </br>
 
+![image](https://github.com/MightyChipmunk/RaceProject/assets/35093963/7ee195c4-3f36-4ae5-83d7-13944016d891)
+![image](https://github.com/MightyChipmunk/RaceProject/assets/35093963/da23158a-7a2c-4c8e-9c0f-c00088482636)
+
+</br>
+
 ## 1. 제작 기간 & 참여 인원
 - 2022년 7월 ~ 8월 (1달)
 - 유니티 개발자 2명
