@@ -22,7 +22,8 @@
 </br>
 
 
-## 3. 핵심 기능 및 상세 역할
+## 3. 핵심 기능 및 상세 역할 :pushpin: [코드 확인](https://github.com/MightyChipmunk/RaceProject/tree/master/Assets/Scripts)
+
 레이싱이라는 움직임 많은 장르의 게임을 개발함으로서 유니티 엔진에 대한 이해를 높이고자 했습니다.
 이 게임은 RayCity라는 2006년에 출시한 레이싱 게임을 모작하였습니다.
 
